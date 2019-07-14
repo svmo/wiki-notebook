@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Wiki Search</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <!-- <script src="https://kit.fontawesome.com/ce8fc02da8.js"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="boot.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+        <!-- navbar colors - navbar-dark bg-dark -->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+            <div class="container py-2">
+                <a class="navbar-brand order-1 mr-0" href="#">Learning Llamas</a>
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">                    </span> 
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link nav-top" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-top" href="#">Features</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+                
+        <!-- jumbotron -->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-sm-center pt-5 mt-5">
+                <h1 class="display-1 text-center text-white page-title">Wiki Search</h1>
+                <div class="row justify-content-center"> 
+                    <div class="col-lg-8 col-md-10" id="search-bar"> <!-- search input col-md-8 col-sm-12-->
+                        <form class="search-form">
+                            <div class="input-group input-group-lg has-search">
+                                <input type="text" class="form-control" id="search-term" name="user-search-term" placeholder="Enter search term" autofocus>
+                                <span class="input-group-append ">
+                                    <button class="btn btn-outline-light fa fa-search" type="submit" id="submit"></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div> <!-- /search input -->
+                </div>
+            </div>
+        </div> <!-- /jumbotron -->
+
+
+        <div class="container wiki-content"> <!-- wiki content -->
+            <div class="row justify-content-center" id="card-deck">
+               <!-- wiki content created here from script.js -->
+            </div>
+
+        <!-- footer -->
+            <div class="row py-3 mt-5">
+                <div class="col-md-7">
+                <ul class="nav">
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Contact Us</a>
+                    </li>
+                </ul>
+                </div>
+                <div class="col-md text-md-right text-white">
+                <small>&copy; 2019 Making Money &amp; Sarasaurus</small>
+                </div>
+            </div><!-- /footer -->
+        </div> <!-- /container -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

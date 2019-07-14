@@ -1,0 +1,100 @@
+body {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ), 
+      url(img/search-img.jpg);
+    /* background-image: url(img/paper-texture2.jpg) !important;
+    background-size: cover !important; */
+    background-attachment: fixed;
+}
+
+.navbar { 
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    /* background-image: url(img/search-img.jpg);
+    background-size: cover !important; */
+    background-color: #01131D !important;
+    /* color:  #50BEf6 !important; */
+}
+
+.navbar-toggler.custom-toggler {
+    border-color: transparent !important;
+}
+
+a.nav-top, 
+a.navbar-brand {
+    color:  #50BEf6 !important;
+}
+
+input#search-term {
+    background-image: url(img/paper-texture2.jpg);
+    background-size: cover ;
+}
+
+.jumbotron {
+    /* background-image: url(img/search-img.jpg);
+    background-size: cover !important; */
+    background-color:transparent !important;
+}
+
+/* .card-img-top {
+    border: 2px solid gray;
+    margin: 10px;
+    padding: 0 !important;
+    object-fit: scale-down;
+} */
+
+.card {
+    box-shadow: 0px 0px 10px 0px #01131D;
+    /* box-shadow: 0 0 10px 5px #50BEf6;  */
+}
+
+.card-body {
+    background-image: url(img/paper-texture2.jpg) ;
+    background-size: cover; 
+    /* background-color: #50BEf6 !important; */
+}
+
+.border-3 {
+    border-width: 10px !important;
+    border-color: #01131D !important;
+}
+
+.card-img-top {
+    border-radius: 0 !important;
+    object-fit: cover;
+}
+
+.wiki-btn {
+    background-color: #01131D !important;
+}
+
+@media (max-width: 768px) {
+    h1.page-title {
+        font-size: 5rem;
+    }
+    
+    h2.search-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h1.page-title {
+        font-size: 4rem;
+    }
+    
+    h2.search-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+
