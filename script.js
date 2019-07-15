@@ -1,27 +1,39 @@
-// var header = document.querySelector('header');
-// var section = document.querySelector('section');
 console.log("JS here")
-// $("button#submit").on("click", function () { $("search-term").text("Hello")})
+
 $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Random Wiki:</h2>');
 var i;
 var numRandomCards = 8;
 for (i = 0; i < numRandomCards; i++) {
-  $("#card-deck").append('<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4"><img src="https://placekitten.com/640/360" class="card-img-top img-fluid" alt="Kitten"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p><a href="#" class="btn wiki-btn text-white">Go somewhere</a></div></div></div>');
+  // $("#card-deck").append('<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4"><img src="https://placekitten.com/640/360" class="card-img-top img-fluid" alt="Kitten"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p><a href="#" class="btn wiki-btn text-white">Go somewhere</a></div></div></div>');
+  getRandomWikiTitle(i);
 };
+
+
 
 $("#search-bar").submit(function(event) {
   var keyword = $('#search-term').val();
   $(".wiki-content .search-title").remove();
   $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Search results:</h2>');
-  console.log(keyword);
+  // console.log(keyword);
   event.preventDefault();
+  getWikiArticles(keyword);
+});
+
+$("#clear").click(function() {
+  $("#search-term").val("").focus();
+  $("#output").html("");
+  $("#keyword-name").html("");
+});
+
+function getWikiArticles (keyword) {
+  // console.log(keyword);
   $.ajax({
     url: "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + keyword + "&limit=20&callback=?",
     dataType: "jsonp",
     success: function(response) {
-      $("#card-deck").html("");
-      $("#keyword-name").html("");
-        console.log(response[1].length);
+        $("#card-deck").html("");
+        $("#keyword-name").html("");
+        // console.log(response);
         if (response[1].length == 0) {
           //showError(keyword);
           alert("Error retrieving search results, please refresh the page");
@@ -40,11 +52,11 @@ $("#search-bar").submit(function(event) {
                     method: "GET",
                     dataType: "jsonp",
                     success: function(newData) {
-                      for (var i = 0; i < newData.query.pages.length; i++) {
-                        console.log(newData.query.pages[i]);
+                       for (var i = 0; i < newData.query.pages.length; i++) {
+                        // console.log(newData.query.pages[i].hasOwnProperty("thumbnail"));
                         if (newData.query.pages[i].hasOwnProperty("thumbnail") === true) {
                           $('#image' + (newData.query.pages[i].index - 1)).prepend(`<img src=${newData.query.pages[i].thumbnail.source} class="card-img-top img-fluid">`);
-                         } //else {
+                         } else {}
                         //   $('#image' + (newData.query.pages[i].index - 1)).prepend('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Article_icon_cropped.svg/512px-Article_icon_cropped.svg.png" class="card-img-top img-fluid" >');
                         // }
                       }
@@ -59,10 +71,25 @@ $("#search-bar").submit(function(event) {
     alert("Error retrieving search results, please refresh the page");
     }
   });
-});
+}
 
-$("#clear").click(function() {
-  $("#search-term").val("").focus();
-  $("#output").html("");
-  $("#keyword-name").html("");
+function getRandomWikiTitle(counter) {
+  wtf.random('en').then(doc => {
+    var title = doc.title();
+    var wikiPara = doc.sentences(0).text();
+    // console.log(`page title: ${title}, first sent: ${wikiSummary}`);
+    pageID = doc.json().pageID;
+    //$("#card-deck").append(`<a href="https://en.wikipedia.org/?curid=${pageID}">Link</a>`)
+    $("#card-deck").append(`<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4 image${counter}"><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${wikiPara}</p><a href="https://en.wikipedia.org/?curid=${pageID}" class="btn wiki-btn text-white" target="_blank">Open in wiki</a></div></div></div>`);
+    
+    if (doc.images().length === 0) {
+      console.log("no images")
+    } else {
+      console.log("images");
+      image = doc.images(0).json().thumb;
+      console.log(doc.images(0).json().thumb);
+      $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
+    }
+    // getWikiArticles(title);
 });
+}
