@@ -2,13 +2,11 @@ console.log("JS here")
 
 $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Random Wiki:</h2>');
 var i;
-var numRandomCards = 8;
+var numRandomCards = 16;
 for (i = 0; i < numRandomCards; i++) {
   // $("#card-deck").append('<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4"><img src="https://placekitten.com/640/360" class="card-img-top img-fluid" alt="Kitten"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p><a href="#" class="btn wiki-btn text-white">Go somewhere</a></div></div></div>');
   getRandomWikiTitle(i);
 };
-
-
 
 $("#search-bar").submit(function(event) {
   var keyword = $('#search-term').val();
@@ -53,7 +51,6 @@ function getWikiArticles (keyword) {
                     dataType: "jsonp",
                     success: function(newData) {
                        for (var i = 0; i < newData.query.pages.length; i++) {
-                        // console.log(newData.query.pages[i].hasOwnProperty("thumbnail"));
                         if (newData.query.pages[i].hasOwnProperty("thumbnail") === true) {
                           $('#image' + (newData.query.pages[i].index - 1)).prepend(`<img src=${newData.query.pages[i].thumbnail.source} class="card-img-top img-fluid">`);
                          } else {}
@@ -77,12 +74,10 @@ function getRandomWikiTitle(counter) {
   wtf.random('en').then(doc => {
     var title = doc.title();
     var wikiPara = doc.sentences(0).text();
-    // console.log(`page title: ${title}, first sent: ${wikiSummary}`);
     pageID = doc.json().pageID;
-    //$("#card-deck").append(`<a href="https://en.wikipedia.org/?curid=${pageID}">Link</a>`)
     $("#card-deck").append(`<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4 image${counter}"><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${wikiPara}</p><a href="https://en.wikipedia.org/?curid=${pageID}" class="btn wiki-btn text-white" target="_blank">Open in wiki</a></div></div></div>`);
     
-    if (doc.images().length === 0) {
+    if (doc.images().length === 0) { //check if image exists
       console.log("no images")
     } else {
       console.log("images");
@@ -90,6 +85,5 @@ function getRandomWikiTitle(counter) {
       console.log(doc.images(0).json().thumb);
       $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
     }
-    // getWikiArticles(title);
 });
 }
