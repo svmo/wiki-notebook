@@ -1,7 +1,6 @@
 console.log("JS here")
 
 $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Random Wiki:</h2>');
-var i;
 var numRandomCards = 16;
 for (i = 0; i < numRandomCards; i++) {
   // $("#card-deck").append('<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4"><img src="https://placekitten.com/640/360" class="card-img-top img-fluid" alt="Kitten"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p><a href="#" class="btn wiki-btn text-white">Go somewhere</a></div></div></div>');
@@ -85,5 +84,10 @@ function getRandomWikiTitle(counter) {
       console.log(doc.images(0).json().thumb);
       $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
     }
+    title = null; // reset vars because mobile browsers were saving them in memory
+    wikiPara = null;
+    pageID = null;
 });
+  
+
 }
