@@ -9,8 +9,8 @@ body {
       ), 
       url(img/search-img.jpg);
     /* background-image: url(img/paper-texture2.jpg) !important;*/
-    background-size: cover !important; 
-    /* background-attachment: fixed; */
+    /* background-size: cover !important; 
+    background-attachment: fixed; */
 }
 
 .navbar { 
@@ -90,6 +90,13 @@ input#search-term {
     
     h2.search-title {
         font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 576px) {
+    body {
+    background-size: cover !important; 
+    background-attachment: fixed;
     }
 }
 
