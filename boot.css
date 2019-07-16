@@ -10,7 +10,7 @@ body {
       url(img/search-img.jpg);
     /* background-image: url(img/paper-texture2.jpg) !important;*/
     background-size: cover !important; 
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 
 .navbar { 
