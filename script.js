@@ -78,15 +78,23 @@ function getRandomWikiTitle(counter) {
     
     if (doc.images().length === 0) { //check if image exists
       console.log("no images")
+      // title = null; // reset vars because mobile browsers were saving them in memory
+      // wikiPara = null;
+      // pageID = null;
+      // console.log(title, wikiPara, pageID);
+      // console.log("this is the end");
     } else {
-      console.log("images");
+      // console.log("images");
       image = doc.images(0).json().thumb;
-      console.log(doc.images(0).json().thumb);
+      // console.log(doc.images(0).json().thumb);
       $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
     }
     title = null; // reset vars because mobile browsers were saving them in memory
     wikiPara = null;
     pageID = null;
+    console.log(title, wikiPara, pageID);
+    console.log("this is the end");
+    
 });
   
 
