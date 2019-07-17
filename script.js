@@ -22,6 +22,8 @@ $("#clear").click(function() {
   $("#keyword-name").html("");
 });
 
+$(".page-title").append(" 0717 - 1:28");
+
 function getWikiArticles (keyword) {
   // console.log(keyword);
   $.ajax({
@@ -85,10 +87,15 @@ function getRandomWikiTitle(counter) {
       // console.log(doc.images(0).json().thumb);
       $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
     }
+    doc = null;
+    title = null; // reset vars because mobile browsers were saving them in memory
+    wikiPara = null;
+    pageID = null;
+    $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
 });
-  doc = null;
-  title = null; // reset vars because mobile browsers were saving them in memory
-  wikiPara = null;
-  pageID = null;
-  $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
+  // doc = null;
+  // title = null; // reset vars because mobile browsers were saving them in memory
+  // wikiPara = null;
+  // pageID = null;
+  // $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
 }
