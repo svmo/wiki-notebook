@@ -97,5 +97,5 @@ function getRandomWikiTitle(counter) {
   title = null; // reset vars because mobile browsers were saving them in memory
   wikiPara = null;
   pageID = null;
-  $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
+  // $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
 }
