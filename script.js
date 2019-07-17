@@ -79,11 +79,11 @@ function getRandomWikiTitle(counter) {
     console.log(title, wikiPara, pageID);
     if (doc.images().length === 0) { //check if image exists
       console.log("no images")
-      // title = null; // reset vars because mobile browsers were saving them in memory
-      // wikiPara = null;
-      // pageID = null;
-      // console.log(title, wikiPara, pageID);
-      // console.log("this is the end");
+      title = null; // reset vars because mobile browsers were saving them in memory
+      wikiPara = null;
+      pageID = null;
+      console.log(title, wikiPara, pageID);
+      console.log("this is the end");
     } else {
       // console.log("images");
       image = doc.images(0).json().thumb;
