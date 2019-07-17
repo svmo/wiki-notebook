@@ -86,7 +86,7 @@ function getRandomWikiTitle(counter) {
       $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
     }
 });
-  
+  doc = null;
   title = null; // reset vars because mobile browsers were saving them in memory
   wikiPara = null;
   pageID = null;
