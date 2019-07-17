@@ -79,32 +79,16 @@ function getRandomWikiTitle(counter) {
     console.log(title, wikiPara, pageID);
     if (doc.images().length === 0) { //check if image exists
       console.log("no images")
-      // title = null; // reset vars because mobile browsers were saving them in memory
-      // wikiPara = null;
-      // pageID = null;
-      // console.log(title, wikiPara, pageID);
-      // console.log("this is the end");
-      // $("#card-deck").prepend(`<h2>${title}</h2>`);
     } else {
       // console.log("images");
       image = doc.images(0).json().thumb;
       // console.log(doc.images(0).json().thumb);
       $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
-      // title = null; // reset vars because mobile browsers were saving them in memory
-      // wikiPara = null;
-      // pageID = null;
-      // console.log(title, wikiPara, pageID);
-      // console.log("this is the end");
-      // $("#card-deck").prepend(`<h2>${title}</h2>`);
     }
-    doc.title() = null; // reset vars because mobile browsers were saving them in memory
-    wikiPara = null;
-    pageID = null;
-    $("#card-deck").prepend(`<h2>${pageID}</h2>`);
-    // console.log(title, wikiPara, pageID);
-    // console.log("this is the end");
-    
 });
   
-
+  title = null; // reset vars because mobile browsers were saving them in memory
+  wikiPara = null;
+  pageID = null;
+  $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
 }
