@@ -77,7 +77,7 @@ function getRandomWikiTitle(counter) {
     var title = doc.title();
     var wikiPara = doc.sentences(0).text();
     pageID = doc.json().pageID;
-    $("#card-deck").append(`<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4 image${counter}"><div class="card-body"><h5 class="card-title">Name: ${title}, count = ${counter}</h5><p class="card-text">${wikiPara}</p><a href="https://en.wikipedia.org/?curid=${pageID}" class="btn wiki-btn text-white" target="_blank">Open in wiki</a></div></div></div>`);
+    $("#card-deck").append(`<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4 image${counter}"><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${wikiPara}</p><a href="https://en.wikipedia.org/?curid=${pageID}" class="btn wiki-btn text-white" target="_blank">Open in wiki</a></div></div></div>`);
     console.log(title, wikiPara, pageID);
     if (doc.images().length === 0) { //check if image exists
       console.log("no images")
@@ -91,7 +91,7 @@ function getRandomWikiTitle(counter) {
     title = null; // reset vars because mobile browsers were saving them in memory
     wikiPara = null;
     pageID = null;
-    $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
+    // $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
 });
   // doc = null;
   // title = null; // reset vars because mobile browsers were saving them in memory
