@@ -3,11 +3,36 @@
 * All pictures, titles, and paragraphs are pulled from wikipedia using their API and [wtf_wikipedia](https://github.com/spencermountain/wtf_wikipedia) API. 
 * other references are [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
 
+# Wiki Search
 
-TODO
-- [] Next page -> list of TOC + pictures
-- []	Next option -> reader view || youtube video
-- []	search bar in mobile should be full screen (span full length of window) and needs a magnifier icon
-- []	on search, search bar moves up to nav bar
-- []	start search-img fullscreen, option search or random
-- []		on button fullscreen turns into nav bar with search + title
+## Description
+### Wiki Search provides a way to search wikipedia without going on the wiki site
+###On load, random wiki articles are shown. Click on the button and the link will open to wikipedia
+* All pictures, titles, and paragraphs are pulled from wikipedia using their API and [wtf_wikipedia](https://github.com/spencermountain/wtf_wikipedia) API. 
+* other references are [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
+
+
+## Custom CSS Classes
+```
+The class(es) I created are:
+
+1. border-3
+.. overrides border for cards, makes it thicker and a custom colo2
+
+2. wiki-btn
+.. adds custom background color to button
+```
+
+
+
+## Custom JavaScript Functions
+```
+The javascript functions I created are:
+
+1. getWikiArticles()
+.. the function uses wiki api to pull all articles related to the users search keyword. Cards are created and appended to the page contating the title, snippet, and image (if available) of the keyword
+
+2. getRandomWikiTitle()
+.. the function uses wtf_wikipedia to pull a specified (15 currently) number to random articels. Cards are created and appended to the page contating the title, snippet, and image (if available) of the random article
+
+```
