@@ -1,13 +1,12 @@
 console.log("JS here")
 
-$(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Random Wiki:</h2>');
+$(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Random Wiki:</h2>'); // changes title
 var numRandomCards = 15;
-for (i = 0; i < numRandomCards; i++) {
-  // $("#card-deck").append('<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4"><img src="https://placekitten.com/640/360" class="card-img-top img-fluid" alt="Kitten"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p><a href="#" class="btn wiki-btn text-white">Go somewhere</a></div></div></div>');
+for (i = 0; i < numRandomCards; i++) { // create random cards, change numRandomCards to add/subtract
   getRandomWikiTitle(i);
 };
 
-$("#search-bar").submit(function(event) {
+$("#search-bar").submit(function(event) { //saves keyword on button press
   var keyword = $('#search-term').val();
   $(".wiki-content .search-title").remove();
   $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Search results:</h2>');
@@ -16,7 +15,7 @@ $("#search-bar").submit(function(event) {
   getWikiArticles(keyword);
 });
 
-$("#clear").click(function() {
+$("#clear").click(function() { // button no longer exists but did clear all
   $("#search-term").val("").focus();
   $("#output").html("");
   $("#keyword-name").html("");
@@ -24,7 +23,7 @@ $("#clear").click(function() {
 
 // $(".page-title").append(" 0717 - 5:22"); // for rev control
 
-function getWikiArticles (keyword) {
+function getWikiArticles (keyword) { // uses user input keyword to pull info from wiki api and add to page as cards
   // console.log(keyword);
   $.ajax({
     url: "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + keyword + "&limit=20&callback=?",
@@ -35,7 +34,7 @@ function getWikiArticles (keyword) {
         // console.log(response);
         if (response[1].length == 0) {
           //showError(keyword);
-          alert("Error retrieving search results, please refresh the page");
+          alert("Error retrieving search results, please refresh the page"); 
         }
         else {
           //  $("#container").prepend('<h2 id=keyword-name>' + keyword + '</h2>');
@@ -55,8 +54,6 @@ function getWikiArticles (keyword) {
                         if (newData.query.pages[i].hasOwnProperty("thumbnail") === true) {
                           $('#image' + (newData.query.pages[i].index - 1)).prepend(`<img src=${newData.query.pages[i].thumbnail.source} class="card-img-top">`);
                          } else {}
-                        //   $('#image' + (newData.query.pages[i].index - 1)).prepend('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Article_icon_cropped.svg/512px-Article_icon_cropped.svg.png" class="card-img-top img-fluid" >');
-                        // }
                       }
                     },
                     error: function() {
@@ -71,7 +68,7 @@ function getWikiArticles (keyword) {
   });
 }
 
-function getRandomWikiTitle(counter) {
+function getRandomWikiTitle(counter) { // gets random wiki pages and makes cards from them
   // console.log(counter);
   wtf.random('en').then(doc => {
     var title = doc.title();
