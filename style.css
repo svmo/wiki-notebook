@@ -34,12 +34,11 @@ p {
 
 }
 
-/* section styles */
-
-section article {
-  /* width: 33%;
-  float: left; */
+.card {
+  width: 100% !important;
 }
+
+/* section styles */
 
 section p {
   margin: 5px 0;

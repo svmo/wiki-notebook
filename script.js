@@ -1,7 +1,7 @@
 console.log("JS here")
 
 $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Random Wiki:</h2>');
-var numRandomCards = 16;
+var numRandomCards = 15;
 for (i = 0; i < numRandomCards; i++) {
   // $("#card-deck").append('<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4"><img src="https://placekitten.com/640/360" class="card-img-top img-fluid" alt="Kitten"><div class="card-body"><h5 class="card-title">Card title</h5><p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p><a href="#" class="btn wiki-btn text-white">Go somewhere</a></div></div></div>');
   getRandomWikiTitle(i);
@@ -22,7 +22,7 @@ $("#clear").click(function() {
   $("#keyword-name").html("");
 });
 
-$(".page-title").append(" 0717 - 5:22");
+// $(".page-title").append(" 0717 - 5:22"); // for rev control
 
 function getWikiArticles (keyword) {
   // console.log(keyword);
@@ -44,7 +44,7 @@ function getWikiArticles (keyword) {
               wikiLink = response[3][i];
               wikiTitle = response[1][i];
               wikiPara = response[2][i];
-              $("#card-deck").append('<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4" id="image' + [i] + '"'+ '><div class="card-body"><h5 class="card-title">' + wikiTitle + '</h5><p class="card-text">' + wikiPara + '</p><a href=' + wikiLink + ' class="btn wiki-btn text-white" target="_blank">Open in wiki</a></div></div></div>');
+              $("#card-deck").append('<div class="col-md-6 col-lg-4 d-flex align-items-stretch"><div class="card border-3 bg-light mb-4" id="image' + [i] + '"'+ '><div class="card-body d-flex flex-column"><h5 class="card-title">' + wikiTitle + '</h5><p class="card-text">' + wikiPara + '</p><a href=' + wikiLink + ' class="btn wiki-btn text-white mt-auto" target="_blank">Open in wiki</a></div></div></div>');
             }
             $.ajax({
                     url: "https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages%7Cpageterms&generator=prefixsearch&redirects=1&formatversion=2&piprop=thumbnail&pithumbsize=250&pilimit=20&wbptterms=description&gpssearch=" + keyword + "&gpslimit=20",
@@ -53,7 +53,7 @@ function getWikiArticles (keyword) {
                     success: function(newData) {
                        for (var i = 0; i < newData.query.pages.length; i++) {
                         if (newData.query.pages[i].hasOwnProperty("thumbnail") === true) {
-                          $('#image' + (newData.query.pages[i].index - 1)).prepend(`<img src=${newData.query.pages[i].thumbnail.source} class="card-img-top img-fluid">`);
+                          $('#image' + (newData.query.pages[i].index - 1)).prepend(`<img src=${newData.query.pages[i].thumbnail.source} class="card-img-top">`);
                          } else {}
                         //   $('#image' + (newData.query.pages[i].index - 1)).prepend('<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Article_icon_cropped.svg/512px-Article_icon_cropped.svg.png" class="card-img-top img-fluid" >');
                         // }
@@ -77,25 +77,13 @@ function getRandomWikiTitle(counter) {
     var title = doc.title();
     var wikiPara = doc.sentences(0).text();
     pageID = doc.json().pageID;
-    $("#card-deck").append(`<div class="col-md-6 col-lg-4"><div class="card border-3 bg-light mb-4 image${counter}"><div class="card-body"><h5 class="card-title">${title}</h5><p class="card-text">${wikiPara}</p><a href="https://en.wikipedia.org/?curid=${pageID}" class="btn wiki-btn text-white" target="_blank">Open in wiki</a></div></div></div>`);
+    $("#card-deck").append(`<div class="col-md-6 col-lg-4 d-flex align-items-stretch"><div class="card border-3 bg-light mb-4 image${counter}"><div class="card-body d-flex flex-column"><h5 class="card-title">${title}</h5><p class="card-text">${wikiPara}</p><a href="https://en.wikipedia.org/?curid=${pageID}" class="btn wiki-btn text-white mt-auto" target="_blank">Open in wiki</a></div></div></div>`);
     console.log(title, wikiPara, pageID);
     if (doc.images().length === 0) { //check if image exists
       console.log("no images")
     } else {
-      // console.log("images");
       image = doc.images(0).json().thumb;
-      // console.log(doc.images(0).json().thumb);
-      $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top img-fluid"></img>`);
+      $(`.image${counter}`).prepend(`<img src="${image}" class="card-img-top"></img>`);
     }
-    doc = null;
-    title = null; // reset vars because mobile browsers were saving them in memory
-    wikiPara = null;
-    pageID = null;
-    // $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
 });
-  doc = null;
-  title = null; // reset vars because mobile browsers were saving them in memory
-  wikiPara = null;
-  pageID = null;
-  // $("#card-deck").prepend(`<h2 class="text-white">${pageID}</h2>`);
 }
