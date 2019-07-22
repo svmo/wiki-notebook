@@ -9,8 +9,6 @@
 ```
 Wiki Search provides a way to search wikipedia without going on the wiki site
 On load, random wiki articles are shown. Click on the button and the link will open to wikipedia
-* All pictures, titles, and paragraphs are pulled from wikipedia using their API and [wtf_wikipedia](https://github.com/spencermountain/wtf_wikipedia) API. 
-* other references are [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
 ```
 
 
@@ -38,3 +36,6 @@ The javascript functions I created are:
 .. the function uses wtf_wikipedia to pull a specified (15 currently) number to random articels. Cards are created and appended to the page contating the title, snippet, and image (if available) of the random article
 
 ```
+## References
+* All pictures, titles, and paragraphs are pulled from wikipedia using their API and [wtf_wikipedia](https://github.com/spencermountain/wtf_wikipedia) API. 
+* other references are [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
