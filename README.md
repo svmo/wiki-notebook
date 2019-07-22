@@ -1,14 +1,8 @@
-# Wiki Search provides a way to search wikipedia without going on the wiki site
-### On load, random wiki articles are shown. Click on the button and the link will open to wikipedia
-* All pictures, titles, and paragraphs are pulled from wikipedia using their API and [wtf_wikipedia](https://github.com/spencermountain/wtf_wikipedia) API. 
-* other references are [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
-
 # Wiki Search
 
 ## Description
 ```
-Wiki Search provides a way to search wikipedia without going on the wiki site
-On load, random wiki articles are shown. Click on the button and the link will open to wikipedia
+Wiki Search provides a way to search wikipedia without going on the wiki site. On page load, random wiki articles are shown. Click on the button and the link will open to wikipedia. If user puts in a search term and searchs, wikipedia articles containing the keyword will be shown.
 ```
 
 
