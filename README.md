@@ -18,6 +18,9 @@ The class(es) I created are:
 
 2. wiki-btn
 .. adds custom background color to button
+
+3. body
+.. adds background image to the page
 ```
 
 
