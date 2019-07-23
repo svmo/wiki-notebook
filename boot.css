@@ -10,17 +10,11 @@ body {
         rgba(0, 0, 0, 0.5)
       ), 
       url(img/search-img.jpg);
-    /* background-image: url(img/paper-texture2.jpg) !important;*/
-    /* background-size: cover !important; 
-    background-attachment: fixed; */
 }
 
 .navbar { 
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-    /* background-image: url(img/search-img.jpg);
-    background-size: cover !important; */
     background-color: #01131D !important;
-    /* color:  #50BEf6 !important; */
 }
 
 .navbar-toggler.custom-toggler {
@@ -38,8 +32,6 @@ input#search-term {
 }
 
 .jumbotron {
-    /* background-image: url(img/search-img.jpg);
-    background-size: cover !important; */
     background-color:transparent !important;
 }
 
@@ -51,7 +43,6 @@ input#search-term {
 .card-body {
     background-image: url(img/paper-texture2.jpg) ;
     background-size: contain; 
-    /* background-color: #50BEf6 !important; */
 }
 
 .border-3 {

@@ -1,16 +1,16 @@
 console.log("JS here")
 
 $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Random Wiki:</h2>'); // changes title
-var numRandomCards = 15;
+
+var numRandomCards = 15; 
 for (i = 0; i < numRandomCards; i++) { // create random cards, change numRandomCards to add/subtract
-  getRandomWikiTitle(i);
+  getRandomWikiCard(i);
 };
 
-$("#search-bar").submit(function(event) { //saves keyword on button press
+$("#search-bar").submit(function(event) { // saves keyword on button press
   var keyword = $('#search-term').val();
   $(".wiki-content .search-title").remove();
   $(".wiki-content").prepend('<h2 class="pb-md-2 pb-sm-1 text-white search-title">Search results:</h2>');
-  // console.log(keyword);
   event.preventDefault();
   getWikiArticles(keyword);
 });
@@ -24,20 +24,17 @@ $("#clear").click(function() { // button no longer exists but did clear all
 // $(".page-title").append(" 0717 - 5:22"); // for rev control
 
 function getWikiArticles (keyword) { // uses user input keyword to pull info from wiki api and add to page as cards
-  // console.log(keyword);
   $.ajax({
     url: "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + keyword + "&limit=20&callback=?",
     dataType: "jsonp",
     success: function(response) {
         $("#card-deck").html("");
         $("#keyword-name").html("");
-        // console.log(response);
         if (response[1].length == 0) {
           //showError(keyword);
           alert("Error retrieving search results, please refresh the page"); 
         }
         else {
-          //  $("#container").prepend('<h2 id=keyword-name>' + keyword + '</h2>');
           // .split(/\s+/).slice(0,10).join(" ")  <!-- code to slice by word not character --> wikiPara.slice(0, 50) <!-- slice by char -->
             for (var i = 0; i < response[1].length; i++ ) {
               wikiLink = response[3][i];
@@ -68,8 +65,7 @@ function getWikiArticles (keyword) { // uses user input keyword to pull info fro
   });
 }
 
-function getRandomWikiTitle(counter) { // gets random wiki pages and makes cards from them
-  // console.log(counter);
+function getRandomWikiCard(counter) { // gets random wiki pages and makes cards from them
   wtf.random('en').then(doc => {
     var title = doc.title();
     var wikiPara = doc.sentences(0).text();

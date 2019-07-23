@@ -21,6 +21,8 @@ The class(es) I created are:
 
 3. body
 .. adds background image to the page
+
+
 ```
 
 
@@ -34,7 +36,7 @@ The javascript functions I created are:
 users search keyword. Cards are created and appended to the page 
 contating the title, snippet, and image (if available) of the keyword
 
-2. getRandomWikiTitle()
+2. getRandomWikiCard()
 .. the function uses wtf_wikipedia to pull a specified (15 currently) 
 number to random articels. Cards are created and appended to the page 
 contating the title, snippet, and image (if available) of the random article
