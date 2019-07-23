@@ -36,7 +36,7 @@ input#search-term {
 }
 
 .card-title {
-    margin-bottom: .75rem;
+    padding-bottom: 40px;
     height: 24px;
 }
 
