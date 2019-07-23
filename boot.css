@@ -35,6 +35,11 @@ input#search-term {
     background-color:transparent !important;
 }
 
+.card-title {
+    margin-bottom: .75rem;
+    height: 40px;
+}
+
 .card {
     box-shadow: 0px 0px 10px 0px #01131D;
     width: 100%;
@@ -43,6 +48,20 @@ input#search-term {
 .card-body {
     background-image: url(img/paper-texture2.jpg) ;
     background-size: contain; 
+}
+
+.card-text {
+    height: 175px;
+}
+
+p.card-text {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; 
 }
 
 .border-3 {

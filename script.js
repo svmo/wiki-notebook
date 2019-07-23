@@ -68,8 +68,9 @@ function getWikiArticles (keyword) { // uses user input keyword to pull info fro
 function getRandomWikiCard(counter) { // gets random wiki pages and makes cards from them
   wtf.random('en').then(doc => {
     if (doc.images().length !== 0) { // check if image exists
+      console.log(doc.sections(0).text());
       var title = doc.title();
-      var wikiPara = doc.sentences(0).text();
+      var wikiPara = doc.sections(0).text();
       pageID = doc.json().pageID;
       $("#card-deck").append(`<div class="col-md-6 col-lg-4 d-flex align-items-stretch"><div class="card border-3 bg-light mb-4 image${counter}"><div class="card-body d-flex flex-column"><h5 class="card-title">${title}</h5><p class="card-text">${wikiPara}</p><a href="https://en.wikipedia.org/?curid=${pageID}" class="btn wiki-btn text-white mt-auto" target="_blank">Open in wiki</a></div></div></div>`);
       image = doc.images(0).json().thumb;
