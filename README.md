@@ -22,7 +22,7 @@ The class(es) I created are:
 3. body
 .. adds background image to the page
 
-
+More custom css can be seen in boot.css
 ```
 
 
@@ -45,4 +45,4 @@ contating the title, snippet, and image (if available) of the random article
 ## References
 * All pictures, titles, and paragraphs are pulled from 
 wikipedia using their API and [wtf_wikipedia](https://github.com/spencermountain/wtf_wikipedia) API. 
-* other references are [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
+* Inspiration from [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
