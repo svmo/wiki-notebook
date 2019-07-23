@@ -45,4 +45,4 @@ with the title, snippet, and image (if available) of the random article
 ## References
 * All pictures, titles, and paragraphs are pulled from 
 wikipedia using [their](https://www.mediawiki.org/wiki/API:Main_page) API and [wtf_wikipedia](https://github.com/spencermountain/wtf_wikipedia) API. 
-* Inspiration from [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/)
+* Inspiration from [Building a Wiki Search App](https://www.freecodecamp.org/news/building-a-wikipedia-search-engine-project-4d84de3841d2/) and [Wikipedia Viewer](https://codepen.io/AbdiViklas/pen/VjdXOm?editors=0010)
