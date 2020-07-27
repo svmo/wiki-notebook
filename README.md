@@ -1,4 +1,5 @@
 # Wiki Search
+[Click here](https://svmo.github.io/wiki-notebook/) for the website!
 
 ## Description
 ```
