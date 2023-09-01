@@ -1,4 +1,5 @@
 # Wiki Search
+### NOTE: The API used to create this website is no longer functional so the website does not work as originally intended
 [Click here](https://svmo.github.io/wiki-notebook/) for the website!
 
 ## Description
